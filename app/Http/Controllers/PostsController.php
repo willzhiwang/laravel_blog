@@ -54,6 +54,14 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $posts = Post::where('title','like','%'.$search.'%')->orwhere('body','like','%'.$search.'%')->paginate(10);
+        
+        return view ('posts.index')->with('posts',$posts);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

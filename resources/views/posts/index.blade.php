@@ -4,6 +4,13 @@
 <br>
     <h1>Posts</h1>
     <br>
+    <form class="form-group" action="/search" method="get">
+        <input class="form-control" type="search" name="search" placeholder="Search by Title or Content">
+        <span>
+        <button class="btn btn-rounded btn-primary" type="submit">Search</button>
+        </span>
+    </form>
+
     @if (count($posts) > 0)
         @foreach($posts as $post)
             <div class="card bg-light p-4">
