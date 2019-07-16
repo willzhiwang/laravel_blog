@@ -5,7 +5,7 @@
     <a href="/posts" class = "btn btn-default">Go Back</a>
     <br><br>
     <h1>{{$post->title}}</h1>
-    <img style="width:50%" src ="public/storage/cover_images/{{$post->cover_image}}">
+    <img style="width:50%" src ="/storage/cover_images/{{$post->cover_image}}">
     <br><br>
     <div>
         {!!$post->body!!}
