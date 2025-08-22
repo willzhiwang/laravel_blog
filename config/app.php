@@ -135,6 +135,10 @@ return [
     */
 
     'providers' => [
+        /*
+         * Package Service Providers...
+         */
+        Laravel\Ui\UiServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -176,7 +180,6 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Collective\Html\HtmlServiceProvider::class,
-        Unisharp\Ckeditor\ServiceProvider::class,
     ],
 
     /*
