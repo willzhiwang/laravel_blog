@@ -5,14 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
+
                     <br>
                     You are logged in!
                     <br>
@@ -28,21 +29,21 @@
                             <th>Title</th>
                         </tr>
                         @foreach ($posts as $post)
-                            <tr>
-                                <td>{{$post->title}}</td>
-                                <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
-                                <td>
-                                    {!! Form::open(['action' => ['PostsController@destroy',$post->id], 'method' => 'POST', 'class'=>'float-right']) !!}
-                                    {{ Form::hidden('_method','DELETE')}}
-                                    {{ Form::submit('Delete',['class'=>'btn btn-danger'])}}
-                            
-                                    {!! Form::close()!!}
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>{{$post->title}}</td>
+                            <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
+                            <td>
+                                {!! Form::open(['action' => ['PostsController@destroy',$post->id], 'method' => 'POST', 'class'=>'float-right']) !!}
+                                {{ Form::hidden('_method','DELETE')}}
+                                {{ Form::submit('Delete',['class'=>'btn btn-danger'])}}
+
+                                {!! Form::close()!!}
+                            </td>
+                        </tr>
                         @endforeach
                     </table>
-                    @else 
-                        <p>You have no posts</p>
+                    @else
+                    <p>You have no posts</p>
                     @endif
                 </div>
             </div>

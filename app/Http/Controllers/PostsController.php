@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Post;
+use App\Models\Post;
 use DB;
 
 class PostsController extends Controller
@@ -58,7 +58,7 @@ class PostsController extends Controller
     {
         $search = $request->get('search');
         $posts = Post::where('title','like','%'.$search.'%')->orwhere('body','like','%'.$search.'%')->paginate(10);
-        
+
         return view ('posts.index')->with('posts',$posts);
     }
 
@@ -191,7 +191,7 @@ class PostsController extends Controller
             //return redirect ('/posts')->with('error','Unauthorized Page');
         }
 
-        $post->delete();    
+        $post->delete();
         return redirect('/posts')->with('success','Post Removed');
     }
 }
